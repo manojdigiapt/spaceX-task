@@ -1,0 +1,28 @@
+@import "../../../assets/common/styles.scss";
+
+.navigation-bar__root{
+    background-color: $side-bar-color;
+    height: 80px;
+    line-height: 80px;
+    // position: fixed;
+    // top: 0;
+    width: 100%;
+    &-items{
+        padding: 0 40px;
+        & > h2{
+            margin: 0;
+            float: left;
+            color:  $side-bar-text-color;
+        }
+        & > h4{
+            margin: 0;
+            cursor: pointer;
+            float: right;
+            color:  $side-bar-text-color;
+        }
+        & > span{
+            float: right;
+            color:  $side-bar-text-color;
+        }
+    }
+}

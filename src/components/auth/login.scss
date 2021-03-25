@@ -1,0 +1,43 @@
+@import "../../assets/common/styles.scss";
+
+.login__root{
+    width: 30%;
+    // margin: 30px 20px 30px auto;
+    border: 1px solid $side-bar-color;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: $common-text-color-white;
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    & > div{
+        display: grid;
+        margin: 0 0 10px 0;
+        ::placeholder{
+            text-transform: capitalize;
+            font-size: $font-13;
+        }
+        & > label{
+            text-align: left;
+        }
+        & > input, & > select{
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid $side-bar-color;
+            background: transparent;
+            outline: none;
+            text-indent: 10px;
+        }
+    }
+    & > button{
+        background-color: $side-bar-color;
+        color: $common-text-color-white;
+        border: 1px solid $side-bar-color;
+        padding: 0 10px;
+        height: 30px;
+        line-height: 28px;
+        cursor: pointer;
+        font-size: $font-13;
+        font-weight: 600;
+    }
+}

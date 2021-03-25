@@ -1,0 +1,33 @@
+@import "../../assets/common/styles.scss";
+
+.space-c-info__root{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    // column-gap: 20px;
+    .Side-menu{
+        background-color: $side-bar-color !important;
+        height: calc(110vh - 0px);
+        & > .item{
+            .item-title{
+                text-align: center;
+                text-transform: capitalize;
+                line-height: 45px;
+                padding: 0;
+                & > a{
+                    color: $side-bar-text-color;
+                    width: 100%;
+                }
+                .item-active{
+                    // background-color: #9e99a0;
+                    font-weight: 600;
+                    color: #fff;
+                }
+            }
+        }
+        // .item.item-level-1.active{
+        //     border-left: none;
+        //     background-color: #9e99a0;
+        // }
+    }
+}

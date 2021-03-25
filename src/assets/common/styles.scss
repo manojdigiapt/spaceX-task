@@ -3,7 +3,44 @@
 
 body {
     background-color: $bg-color;
+    // background: #282c2b url(https://d33wubrfki0l68.cloudfront.net/831fd0891965db5718fe4a2ba921b03b97a91a34/e58cc/img/rocketdownrange.35d6059b.jpg) no-repeat 50%/cover;
+    background-attachment: fixed;
+    max-width: 100%;
     width: 100%;
     height: 100%;
     margin: 0 auto;
+}
+
+.data-root{
+   padding: 20px;
+   background-color: #fff;
+   margin: 20px;
+   .data-root__info{
+       display: grid;
+       & > span{
+           text-align: left;
+           text-transform: capitalize;
+       }
+       & > h3{
+           text-align: left;
+           font-weight: 600;
+           margin: 10px 0;
+       }
+       & > a{
+           text-align: left;
+       }
+       .sub-data{
+           display: grid;
+           text-align: left;
+       }
+       .img-section{
+            display: flex;
+            & > div{
+                & > img{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+       }
+   }
 }
