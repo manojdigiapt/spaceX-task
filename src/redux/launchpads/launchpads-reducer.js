@@ -8,7 +8,6 @@ import {
    launchpads: [],
    loading: false,
    error: null,
-   launchpadsDetails: {},
  };
  
  export default function launchpadsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
          ...state,
          loading: false,
          launchpads: action.payload.launchpads,
-         launchpadsDetails: action.payload.launchpads
        };
  
      case FETCH_LAUNCHPADS_FAILURE:
@@ -34,7 +32,6 @@ import {
          loading: false,
          error: action.payload.error,
          launchpads: [],
-         launchpadsDetails: {}
        };
  
      default:

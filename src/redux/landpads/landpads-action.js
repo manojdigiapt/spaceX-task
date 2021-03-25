@@ -31,23 +31,8 @@ export function fetchLandPads() {
         .catch(error => dispatch(fetchLandPadsFailure(error)));
     };
 }
-
-export function fetchDetailsLandpads(serialId) {
-  return dispatch => {
-    dispatch(fetchLandPadsBegin());
-    return fetch(`${BASE_URL}landpads/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchLandPadsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchLandPadsFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

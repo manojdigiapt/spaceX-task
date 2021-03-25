@@ -31,23 +31,8 @@ export function fetchLaunchPads() {
         .catch(error => dispatch(fetchLaunchPadsFailure(error)));
     };
 }
-
-export function fetchDetailsLaunchpads(serialId) {
-  return dispatch => {
-    dispatch(fetchLaunchPadsBegin());
-    return fetch(`${BASE_URL}launchpads/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchLaunchPadsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchLaunchPadsFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

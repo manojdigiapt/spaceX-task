@@ -8,7 +8,6 @@ import {
     dragons: [],
     loading: false,
     error: null,
-    dragonsDetails: {},
   };
   
   export default function dragonsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           dragons: action.payload.dragons,
-          dragonsDetails: action.payload.dragons
         };
   
       case FETCH_DRAGONS_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           dragons: [],
-          dragonsDetails: {}
         };
   
       default:

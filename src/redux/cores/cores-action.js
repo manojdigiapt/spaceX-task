@@ -31,23 +31,8 @@ export function fetchCores() {
         .catch(error => dispatch(fetchCoresFailure(error)));
     };
 }
-
-export function fetchDetailsCores(serialId) {
-  return dispatch => {
-    dispatch(fetchCoresBegin());
-    return fetch(`${BASE_URL}cores/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchCoresSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchCoresFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

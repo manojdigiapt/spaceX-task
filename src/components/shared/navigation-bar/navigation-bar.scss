@@ -13,16 +13,19 @@
             margin: 0;
             float: left;
             color:  $side-bar-text-color;
+            font-weight: 600;
         }
-        & > h4{
-            margin: 0;
-            cursor: pointer;
+        .navigation-bar__root-account{
+            margin: 0 0 0 auto;
+            display: flex;
             float: right;
-            color:  $side-bar-text-color;
-        }
-        & > span{
-            float: right;
-            color:  $side-bar-text-color;
+            & > h4{
+                margin: 0 10px 0 0;
+                cursor: pointer;
+                color:  $side-bar-text-color;
+                text-transform: capitalize;
+                font-weight: 600;
+            }
         }
     }
 }

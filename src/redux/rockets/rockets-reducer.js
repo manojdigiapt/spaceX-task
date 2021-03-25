@@ -8,7 +8,6 @@ import {
     rockets: [],
     loading: false,
     error: null,
-    rocketsDetails: {},
   };
   
   export default function rocketsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           rockets: action.payload.rockets,
-          rocketsDetails: action.payload.rockets
         };
   
       case FETCH_ROCKETS_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           rockets: [],
-          rocketsDetails: {}
         };
   
       default:

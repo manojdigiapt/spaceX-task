@@ -40,4 +40,10 @@
         font-size: $font-13;
         font-weight: 600;
     }
+    .login__root--error{
+        text-align: left;
+        display: block;
+        color: #ff0000;
+        font-size: $font-12;
+    }
 }

@@ -13,19 +13,22 @@ class Cores extends React.Component {
 
     render() {
         const {cores, error, loading} = this.props;
-        console.log("cores", cores, error, loading)
+        console.log("cores", cores, error, loading);
+        let gridData = [];
+        if (cores && cores)
+        cores && cores.map(data => {
+            const cores = {
+                ...data,
+                original_launch: formatDate(data.original_launch)
+            };
+            gridData.push(cores);
+        });
         return (
             <div className="data-root">
                 {loading ? <Loader /> : (
                 <CustomTable 
                     columns={coresGridColumns}
-                    dataSource={cores?.map(data => {
-                        return {
-                            ...data,
-                            original_launch: formatDate(data.original_launch)
-                        }
-                    })
-                }
+                    dataSource={gridData}
                 />
                 )}
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {fetchShips} from "../../../redux/ships/ships-action";
 import CustomTable from "../../shared/customgrid/customgrid";
 import {shipsGridColumns} from "../../../mock/grid-columns";
@@ -7,8 +8,13 @@ import {formatDate} from "../../../utils/date-format";
 import Loader from "../../shared/loader/loader";
 
 class Ships extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchShips());
+    // componentDidMount() {
+    //     this.props.dispatch(fetchShips());
+    // }
+
+    componentWillMount() {
+        const {fetchShips} = this.props;
+        fetchShips();
     }
 
     render() {
@@ -42,4 +48,8 @@ const mapStateToProps = (state) => ({
     error: state.ships.error
 });
 
-export default connect(mapStateToProps)(Ships);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchShips: fetchShips
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ships);

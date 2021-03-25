@@ -35,7 +35,9 @@ class Roadster extends React.Component {
                 <span><b>Norad id: </b>{roadster?.norad_id}</span>
                 <span><b>Orbit type: </b>{roadster?.orbit_type}</span>
                 <span><b>Periapsis: </b>{roadster?.periapsis_arg}</span>
-                <video src={roadster?.video} />
+                <video autoPlay width="400" controls>
+                <source src={roadster?.video} />
+                </video>
                 <a href={roadster?.wikipedia}>Wikipedia</a>
                 </div>
                 )}

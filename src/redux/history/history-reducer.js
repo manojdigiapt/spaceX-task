@@ -8,7 +8,6 @@ import {
      history: [],
      loading: false,
      error: null,
-     historyDetails: {},
    };
    
    export default function historyReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
            ...state,
            loading: false,
            history: action.payload.data,
-           historyDetails: action.payload.history
          };
    
        case FETCH_HISTORY_FAILURE:
@@ -34,7 +32,6 @@ import {
            loading: false,
            error: action.payload.error,
            history: [],
-           historyDetails: {}
          };
    
        default:

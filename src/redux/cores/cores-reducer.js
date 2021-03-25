@@ -8,7 +8,6 @@ import {
     cores: [],
     loading: false,
     error: null,
-    coresDetails: {},
   };
   
   export default function coresReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           cores: action.payload.cores,
-          coresDetails: action.payload.cores
         };
   
       case FETCH_CORES_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           cores: [],
-          coresDetails: {}
         };
   
       default:

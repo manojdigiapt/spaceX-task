@@ -8,7 +8,6 @@ import {
     landpads: [],
     loading: false,
     error: null,
-    landpadsDetails: {},
   };
   
   export default function landpadsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           landpads: action.payload.landpads,
-          landpadsDetails: action.payload.landpads
         };
   
       case FETCH_LANDPADS_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           landpads: [],
-          landpadsDetails: {}
         };
   
       default:

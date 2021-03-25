@@ -32,22 +32,22 @@ export function fetchRockets() {
     };
 }
 
-export function fetchDetailsRockets(serialId) {
-  return dispatch => {
-    dispatch(fetchRocketsBegin());
-    return fetch(`${BASE_URL}rockets/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchRocketsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchRocketsFailure(error)));
-  };
-}
+// export function fetchDetailsRockets(serialId) {
+//   return dispatch => {
+//     dispatch(fetchRocketsBegin());
+//     return fetch(`${BASE_URL}rockets/${serialId}`)
+//       .then(handleErrors)
+//       .then(res => res.json())
+//       .then(json => {
+//         dispatch(fetchRocketsSuccess(json));
+//         console.log("json",json)
+//         return json;
+//       })
+//       .catch(error => dispatch(fetchRocketsFailure(error)));
+//   };
+// }
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

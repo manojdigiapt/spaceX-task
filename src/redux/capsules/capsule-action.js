@@ -31,23 +31,8 @@ export function fetchCapsules() {
         .catch(error => dispatch(fetchCapsulesFailure(error)));
     };
 }
-
-export function fetchDetailsCapsules(serialId) {
-  return dispatch => {
-    dispatch(fetchCapsulesBegin());
-    return fetch(`${BASE_URL}capsules/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchCapsulesSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchCapsulesFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

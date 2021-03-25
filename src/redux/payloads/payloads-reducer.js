@@ -8,7 +8,6 @@ import {
     payloads: [],
     loading: false,
     error: null,
-    payloadsDetails: {},
   };
   
   export default function payloadsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           payloads: action.payload.payloads,
-          payloadsDetails: action.payload.payloads
         };
   
       case FETCH_PAYLOADS_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           payloads: [],
-          payloadsDetails: {}
         };
   
       default:

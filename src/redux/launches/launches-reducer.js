@@ -8,7 +8,6 @@ import {
     launches: [],
     loading: false,
     error: null,
-    launchesDetails: {},
   };
   
   export default function launchesReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           launches: action.payload.launches,
-          launchesDetails: action.payload.launches
         };
   
       case FETCH_LAUNCHES_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           launches: [],
-          launchesDetails: {}
         };
   
       default:

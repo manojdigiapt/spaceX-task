@@ -31,23 +31,8 @@ export function fetchHistory() {
         .catch(error => dispatch(fetchHistoryFailure(error)));
     };
 }
-
-export function fetchDetailsHistory(serialId) {
-  return dispatch => {
-    dispatch(fetchHistoryBegin());
-    return fetch(`${BASE_URL}history/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchHistorySuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchHistoryFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

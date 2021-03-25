@@ -8,7 +8,6 @@ import {
     missions: [],
     loading: false,
     error: null,
-    missionsDetails: {},
   };
   
   export default function missionsReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           missions: action.payload.missions,
-          missionsDetails: action.payload.missions
         };
   
       case FETCH_MISSIONS_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           missions: [],
-          missionsDetails: {}
         };
   
       default:

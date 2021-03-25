@@ -1,5 +1,6 @@
 import React from 'react';
 import "./login.scss";
+import { message } from 'antd';
 class Login extends React.Component {
     constructor(props){
         super(props);
@@ -12,7 +13,8 @@ class Login extends React.Component {
             user: "",
             password: "",
             role: null,
-            loggedIn
+            loggedIn,
+            error: ''
         }
     }
 
@@ -27,20 +29,33 @@ class Login extends React.Component {
         });
     };
 
+    formValid(){
+        const {user, password, role} = this.state;
+        if(!user){
+            return this.setState({error: "Enter name*"})
+        } else if(!password){
+            return this.setState({error: "Enter password*"})
+        } else if(!role){
+            return this.setState({error: "Select role*"})
+        } return true
+    }
+
     handleSubmit = () => {
         const {user, password, role} = this.state;
-        if(user === "user" || password === "user" ){
-            const roleBased= {
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-                "user": this.state.user
-            }
-            localStorage.setItem("roleBased", JSON.stringify(roleBased))
-            localStorage.setItem("role", this.state.role)
-            this.setState({
-                loggedIn: true,
-            })
-            this.props.history.push("/dashboard")
-        }
+        if(this.formValid()){
+            if(user === "user" || password === "user" ){
+                const roleBased= {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+                    "user": this.state.user
+                }
+                localStorage.setItem("roleBased", JSON.stringify(roleBased))
+                localStorage.setItem("role", this.state.role)
+                this.setState({
+                    loggedIn: true,
+                })
+                this.props.history.push("/dashboard")
+            }    
+        } 
     }
     
 
@@ -50,6 +65,7 @@ class Login extends React.Component {
         return (
             <div className="login__root">
                 <h2>Login</h2>
+                <span className="login__root--error">{this.state.error}</span>
                 <div>
                     <label>User name(user)</label>
                     <input value={user} onChange={this.handleChange} name="user" type="text" placeholder="user name" />

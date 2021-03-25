@@ -32,22 +32,8 @@ export function fetchLaunches() {
     };
 }
 
-export function fetchDetailsLaunches(serialId) {
-  return dispatch => {
-    dispatch(fetchLaunchesBegin());
-    return fetch(`${BASE_URL}launches/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchLaunchesSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchLaunchesFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

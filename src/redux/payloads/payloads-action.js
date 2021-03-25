@@ -32,22 +32,22 @@ export function fetchPayloads() {
     };
 }
 
-export function fetchDetailsPayloads(serialId) {
-  return dispatch => {
-    dispatch(fetchPayloadsBegin());
-    return fetch(`${BASE_URL}payloads/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchPayloadsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchPayloadsFailure(error)));
-  };
-}
+// export function fetchDetailsPayloads(serialId) {
+//   return dispatch => {
+//     dispatch(fetchPayloadsBegin());
+//     return fetch(`${BASE_URL}payloads/${serialId}`)
+//       .then(handleErrors)
+//       .then(res => res.json())
+//       .then(json => {
+//         dispatch(fetchPayloadsSuccess(json));
+//         console.log("json",json)
+//         return json;
+//       })
+//       .catch(error => dispatch(fetchPayloadsFailure(error)));
+//   };
+// }
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

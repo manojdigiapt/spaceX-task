@@ -19,7 +19,7 @@ class Launches extends React.Component {
         launches && launches.map(data => {
             const launches = {
                 ...data,
-                original_launch: formatDate(data.original_launch)
+                launch_date_utc: formatDate(data.launch_date_utc)
             };
             gridData.push(launches);
         });

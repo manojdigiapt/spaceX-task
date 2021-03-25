@@ -29,6 +29,7 @@ import Rockets from "../../components/pages/rockets/rockets";
 import RocketsDetails from "../../components/pages/rockets/rockets-details";
 import Roadster from "../../components/pages/roadster/roadster";
 import History from "../../components/pages/historical-events/historical-events";
+import HistoryDetails from "../../components/pages/historical-events/historical-detail-events";
 import Ships from "../../components/pages/ships/ships";
 import ShipsDetails from "../../components/pages/ships/ships-details";
 
@@ -172,6 +173,11 @@ class Main extends React.Component {
                     <Route
                         path={`/history`}
                         component={props => <History {...props} />}
+                        exact
+                    />
+                    <Route
+                        path={`/history/:id`}
+                        component={props => <HistoryDetails {...props} />}
                         exact
                     />
                     </div>

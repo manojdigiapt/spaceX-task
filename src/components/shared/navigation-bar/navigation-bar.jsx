@@ -25,12 +25,16 @@ class Navigation extends React.Component {
     }
 
     render() {
-        console.log("history", this.props.history)
+        console.log("history", this.props.history);
+        const getRole = localStorage.getItem("role");
         return (
             <div className="navigation-bar__root">
                 <div className="navigation-bar__root-items">
                 <h2>SpaceX</h2>
+                <div className="navigation-bar__root-account">
+                <h4>{getRole}</h4>
                 <h4 onClick={this.handleLogout}>Logout</h4>
+                </div>
                 </div>
             </div>
         );

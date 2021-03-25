@@ -8,7 +8,6 @@ import {
     capsules: [],
     loading: false,
     error: null,
-    capsuleDetails: {},
   };
   
   export default function capsuleReducer(state = initialState, action) {
@@ -25,7 +24,6 @@ import {
           ...state,
           loading: false,
           capsules: action.payload.capsules,
-          capsuleDetails: action.payload.capsules
         };
   
       case FETCH_CAPSULES_FAILURE:
@@ -34,7 +32,6 @@ import {
           loading: false,
           error: action.payload.error,
           capsules: [],
-          capsuleDetails: {}
         };
   
       default:

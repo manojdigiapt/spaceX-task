@@ -32,22 +32,8 @@ export function fetchMissions() {
     };
 }
 
-export function fetchDetailsMissions(serialId) {
-  return dispatch => {
-    dispatch(fetchMissionsBegin());
-    return fetch(`${BASE_URL}missions/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchMissionsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchMissionsFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);

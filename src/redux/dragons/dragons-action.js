@@ -31,23 +31,8 @@ export function fetchDragons() {
         .catch(error => dispatch(fetchDragonsFailure(error)));
     };
 }
-
-export function fetchDetailsDragons(serialId) {
-  return dispatch => {
-    dispatch(fetchDragonsBegin());
-    return fetch(`${BASE_URL}dragons/${serialId}`)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchDragonsSuccess(json));
-        console.log("json",json)
-        return json;
-      })
-      .catch(error => dispatch(fetchDragonsFailure(error)));
-  };
-}
   
-  // Handle HTTP errors since fetch won't.
+  
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);
